@@ -1,4 +1,20 @@
-import React from "react";
+const allBlogs = [
+  {
+    img: "/img18.jpg",
+    title: "she is an hardworking girl",
+    des: "lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, et unde. Voluptas asperiores suscipit placeat quos deserunt quasi.",
+  },
+  {
+    img: "/img10.jpg",
+    title: "the beauty of nature",
+    des: "lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, et unde. Voluptas asperiores suscipit.",
+  },
+  {
+    img: "/download.jfif",
+    title: "exploring the world",
+    des: "lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, et unde. Voluptas asperiores suscipit.",
+  },
+];
 
 export default function () {
   return (
@@ -11,24 +27,26 @@ export default function () {
       <div className="text-left mb-4 px-5">
         <h3 className="text-xl font-semibold mb-4">Latest Blog</h3>
         <div>
-          <div className="rounded-xl overflow-hidden shadow-md">
-            {/* blog image */}
-            <div className="w-full h-50">
-              <img
-                src="/img18.jpg"
-                alt=""
-                className="w-full h-full oject-cover"
-              />
+          {allBlogs.map((blog, id) => (
+            <div className="rounded-xl overflow-hidden shadow-md">
+              {/* blog image */}
+              <div className="w-full h-50">
+                <img
+                  src={blog.img}
+                  alt=""
+                  className="w-full h-full oject-cover"
+                />
+              </div>
+              <div className="px-4 py-3">
+                <h4 className="uppercase font-semibold mb-2">
+                {blog.title}
+                </h4>
+                <p className="text-[15px] leading-6 text-zinc-700">
+                 {blog.des}
+                </p>
+              </div>
             </div>
-            <div className="px-4 py-3">
-              <h4 className="uppercase font-semibold mb-2">she is an hardworking girl</h4>
-              <p className="text-[15px] leading-6 text-zinc-700">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Recusandae, et unde. Voluptas asperiores suscipit placeat quos
-                deserunt quasi.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
